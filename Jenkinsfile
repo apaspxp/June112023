@@ -17,7 +17,7 @@ pipeline {
                         id: 'stage2',
                         message: 'Proceed to Stage 2?',
                         parameters: [
-                            [$class: 'BooleanParameterDefinition', defaultValue: false, description: '', name: 'proceed', ok: 'Submit']
+                            [$class: 'BooleanParameterDefinition', defaultValue: false, description: '', name: 'proceed']
                         ]
                     )
                 }
