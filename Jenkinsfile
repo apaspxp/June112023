@@ -10,8 +10,8 @@ pipeline {
             steps {
                 sh 'echo Hello world from Jenkinsfile!'
                 sh "echo Change title is ${env.CHANGE_TITLE}"
-                echo '"Current build is ${currentBuild.number}"'
-                echo '"Job name is ${env.JOB_NAME}"'
+                sh "echo Current build is ${currentBuild.number}"
+                sh "echo Job name is ${env.JOB_NAME}"
             }
         }
     }
