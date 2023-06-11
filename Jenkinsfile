@@ -17,9 +17,11 @@ pipeline {
                         id: 'stage2',
                         message: 'Proceed to Stage 2?',
                         parameters: [
-                            [$class: 'BooleanParameterDefinition', defaultValue: false, description: '', name: 'proceed']
+                            #[$class: 'BooleanParameterDefinition', defaultValue: false, description: '', name: 'proceed']
+                            [$class: 'StringParameterDefinition', defaultValue: '', description: 'Enter a value:', name: 'inputValue']
                         ]
                     )
+                    echo "User input for Stage 4: ${userInput.inputValue}"
                 }
             }
         }
