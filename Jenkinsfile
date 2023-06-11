@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Hello world from Jenkinsfile!'
-                echo 'Current build is ${currentBuild.number}'
+                echo "Current build is ${currentBuild.number}"
             }
         }
     }
