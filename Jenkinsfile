@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Hello world from Jenkinsfile!'
-                echo "Branch name is ${env.BRANCH_NAME}"
+                echo "Branch name is env.BRANCH_NAME"
                 echo "Current build is ${currentBuild.number}"
             }
         }
