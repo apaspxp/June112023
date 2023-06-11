@@ -2,54 +2,66 @@ pipeline {
     agent any
 
     triggers {
-        pollSCM('* * * * *')
+        cron('* * * * *')
     }
 
     stages {
-        stage('Stage 0') {
-            steps {
-                sh 'echo Hello world from Jenkinsfile of first-branch!'
-                sh "echo first-branch Change title is ${env.CHANGE_TITLE}"
-                sh "echo first-branch Current build is ${currentBuild.number}"
-                sh "echo first-branch Job name is ${env.JOB_NAME}"
-                sh "echo first-branch Build duration ${currentBuild.durationString}"
-            }
-        }
         stage('Stage 1') {
             steps {
-                sh "echo Step 1 of Stage 1"
+                echo 'Executing Stage 1'
+                // Stage 1 steps
             }
             post {
                 always {
-                    input("Proceed to Stage 2?", "Stage2")
+                    input(
+                        id: 'stage2',
+                        message: 'Proceed to Stage 2?',
+                        parameters: [
+                            [$class: 'BooleanParameterDefinition', defaultValue: false, description: '', name: 'proceed']
+                        ]
+                    )
                 }
             }
         }
         stage('Stage 2') {
             steps {
-                sh "echo Step 1 of Stage 2"
+                echo 'Executing Stage 2'
+                // Stage 2 steps
             }
             post {
                 always {
-                    input("Proceed to Stage 3?", "stage3")
+                    input(
+                        id: 'stage3',
+                        message: 'Proceed to Stage 3?',
+                        parameters: [
+                            [$class: 'BooleanParameterDefinition', defaultValue: false, description: '', name: 'proceed']
+                        ]
+                    )
                 }
             }
         }
         stage('Stage 3') {
             steps {
-                sh "echo Step 1 of Stage 3"
+                echo 'Executing Stage 3'
+                // Stage 3 steps
             }
             post {
                 always {
-                    input("Proceed to Stage 4?", "stage4")
+                    input(
+                        id: 'stage4',
+                        message: 'Proceed to Stage 4?',
+                        parameters: [
+                            [$class: 'BooleanParameterDefinition', defaultValue: false, description: '', name: 'proceed']
+                        ]
+                    )
                 }
             }
         }
         stage('Stage 4') {
             steps {
-                sh "echo Step 1 of Stage 4"
+                echo 'Executing Stage 4'
+                // Stage 4 steps
             }
         }
     }
 }
-
