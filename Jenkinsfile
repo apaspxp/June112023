@@ -13,6 +13,7 @@ pipeline {
             }
             post {
                 always {
+                    def userInput = 
                     input(
                         id: 'stage2',
                         message: 'Proceed to Stage 2?',
