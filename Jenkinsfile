@@ -18,7 +18,7 @@ pipeline {
                         ]
                     )
 
-                    if (userInput.inputValue == 'proceed') {
+                    if (userInput['inputValue'] == 'proceed') {
                         echo 'User chose to proceed to Stage 2'
                         env.CONTINUE_STAGE_2 = true
                     } else {
