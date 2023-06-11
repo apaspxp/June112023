@@ -1,11 +1,16 @@
 pipeline {
     agent any
 
+    triggers {
+        pollSCM('* * * * *')
+    }
+
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello World from the Jenkins file!'
+                echo 'Hello world from git!'
             }
         }
     }
 }
+
